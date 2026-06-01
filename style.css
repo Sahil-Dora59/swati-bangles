@@ -1,0 +1,41 @@
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#f8f5f0;
+}
+
+header{
+    background:#5B1023;
+    color:white;
+    padding:20px;
+    text-align:center;
+}
+
+h1{
+    margin:0;
+}
+
+.hero{
+    text-align:center;
+    padding:60px 20px;
+    background:linear-gradient(to right,#5B1023,#B76E79);
+    color:white;
+}
+
+.section{
+    padding:40px 20px;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    margin:10px;
+    border-radius:10px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+.contact{
+    background:#5B1023;
+    color:white;
+    padding:30px;
+}

@@ -124,3 +124,11 @@ html{
     border-radius:15px;
     box-shadow:0 4px 15px rgba(0,0,0,0.2);
 }
+.hero-shop-img{
+    width:90%;
+    max-width:900px;
+    border-radius:15px;
+    margin:25px auto;
+    display:block;
+    box-shadow:0 5px 20px rgba(0,0,0,0.3);
+}

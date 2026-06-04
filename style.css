@@ -268,3 +268,19 @@ header h1{
 }
 
 }
+.map-section{
+    text-align:center;
+    padding:60px 20px;
+    background:white;
+}
+
+.map-section h2{
+    color:#5a0f1c;
+    margin-bottom:15px;
+}
+
+.map-section p{
+    max-width:600px;
+    margin:0 auto 20px;
+}
+

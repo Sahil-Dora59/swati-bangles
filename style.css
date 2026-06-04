@@ -359,7 +359,8 @@ border:1px solid #D4AF37;
 }
 .gold-line{
     width:120px;
-    height:2px;
+    height:3px;
     background:#D4AF37;
     margin:20px auto 0;
+    border-radius:10px;
 }

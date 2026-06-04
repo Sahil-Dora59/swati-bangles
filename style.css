@@ -50,18 +50,19 @@ header h1{
 }
 
 nav{
+    margin-top:25px;
     display:flex;
     justify-content:center;
+    align-items:center;
+    gap:35px;
     flex-wrap:wrap;
-    gap:20px;
 }
 
 nav a{
     color:white;
     text-decoration:none;
-    margin:0 20px;
     font-weight:600;
-    letter-spacing:0.5px;
+    font-size:18px;
     transition:0.3s;
 }
 
@@ -297,13 +298,15 @@ header h1{
 
 .tagline{
     font-size:18px;
+margin-bottom:10px;
 }
 nav{
-    gap:10px;
+    gap:18px;
+margin-top:20px;
 }
 
 nav a{
-    font-size:14px;
+    font-size:16px;
 }
 
 .gallery{

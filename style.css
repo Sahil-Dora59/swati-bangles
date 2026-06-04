@@ -358,9 +358,10 @@ box-shadow:0 10px 25px rgba(212,175,55,0.25);
 border:1px solid #D4AF37;
 }
 .gold-line{
-    width:120px;
-    height:3px;
+    width:80px;
+    height:2px;
     background:#D4AF37;
-    margin:20px auto 0;
+    margin:25px auto 0;
     border-radius:10px;
+    opacity:0.8;
 }

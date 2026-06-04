@@ -35,12 +35,18 @@ padding:25px 20px;
 }
 
 header h1{
-font-size:2.2rem;
+    margin:0;
+    font-size:48px;
+    color:white;
+    letter-spacing:2px;
+    font-weight:700;
 }
 
 .tagline{
-margin-top:10px;
-color:#f5e6a8;
+    margin-top:12px;
+    font-size:20px;
+    color:#f5d77a;
+    line-height:1.6;
 }
 
 nav{
@@ -52,11 +58,12 @@ flex-wrap:wrap;
 }
 
 nav a{
-color:white;
-text-decoration:none;
-font-size:18px;
-font-weight:600;
-transition:0.3s;
+    color:white;
+    text-decoration:none;
+    margin:0 20px;
+    font-weight:600;
+    letter-spacing:0.5px;
+    transition:0.3s;
 }
 
 nav a:hover{
@@ -75,9 +82,12 @@ color:var(--maroon);
 margin-bottom:15px;
 }
 
-.hero-subtitle{
-color:#666;
-margin-bottom:25px;
+.subtagline{
+    font-size:22px;
+    color:#666;
+    letter-spacing:0.5px;
+    line-height:1.7;
+    margin-bottom:30px;
 }
 
 .hero-shop-img{
@@ -282,7 +292,13 @@ z-index:999;
 }
 
 @media(max-width:768px){
+header h1{
+    font-size:38px;
+}
 
+.tagline{
+    font-size:18px;
+}
 nav{
     gap:10px;
 }

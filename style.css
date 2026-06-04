@@ -188,19 +188,22 @@ transition:all 0.4s ease;
     border:1px solid #D4AF37;
     box-shadow:0 12px 25px rgba(212,175,55,0.25);
 }
-
 .about{
-max-width:1000px;
-margin:40px auto;
-padding:35px;
-background:white;
-border-radius:15px;
-box-shadow:0 5px 15px rgba(0,0,0,0.08);
+    background:white;
+    border-radius:20px;
+    padding:40px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.08);
+    transition:0.4s;
+}
+
+.about:hover{
+    transform:translateY(-5px);
 }
 
 .why-us,
-.trust-section{
-padding:60px 20px;
+.trust-section h2{
+text-align:center;
+margin-bottom:30px;
 }
 
 .why-grid{

@@ -46,7 +46,7 @@ header{
 background:linear-gradient(135deg,var(--maroon),#8b1e2d);
 color:white;
 text-align:center;
-padding:35px 20px;
+padding:80px 20px;
 }
 
 .site-logo{
@@ -97,7 +97,7 @@ transform:translateY(-2px);
 width:80px;
 height:2px;
 background:var(--gold);
-margin:25px auto 0;
+margin:15px auto 0;
 border-radius:10px;
 }
 
@@ -351,8 +351,9 @@ z-index:999;
 @media(max-width:768px){
 
 .site-logo{
-width:180px;
-margin-botton:20px;  
+width:90px;
+margin-botton:15px;
+  filter:drop-shadow(0 0 8px rgba(212,175,55,0.4));
 }
 
 header h1{

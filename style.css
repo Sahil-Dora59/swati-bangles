@@ -36,7 +36,7 @@ padding:25px 20px;
 
 header h1{
     margin:0;
-    font-size:48px;
+    font-size:42px;
     color:white;
     letter-spacing:2px;
     font-weight:700;
@@ -50,11 +50,10 @@ header h1{
 }
 
 nav{
-margin-top:25px;
-display:flex;
-justify-content:center;
-gap:35px;
-flex-wrap:wrap;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:20px;
 }
 
 nav a{
@@ -95,7 +94,7 @@ width:90%;
 max-width:950px;
 border-radius:18px;
 display:block;
-margin:25px auto;
+margin:20px auto;
 box-shadow:0 8px 25px rgba(0,0,0,0.15);
 }
 

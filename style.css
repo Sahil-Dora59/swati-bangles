@@ -224,15 +224,45 @@ footer{
 background:#2b0008;
 color:white;
 text-align:center;
-padding:40px 20px;
-border-top:3px solid #D4AF37;
+padding:30px 20px;
+border-top:2px solid #D4AF37;
 }
+
 footer h2{
 color:#D4AF37;
-font-size:36px;
+font-size:34px;
+margin-bottom:10px;
+letter-spacing:1px;
+}
+
+.footer-tagline{
+color:#f5e6b8;
+font-size:15px;
 margin-bottom:15px;
 }
 
+.footer-trust{
+font-size:16px;
+font-weight:500;
+margin-bottom:12px;
+}
+
+.footer-gst{
+color:#D4AF37;
+font-size:14px;
+margin-bottom:12px;
+}
+
+.footer-location{
+font-size:14px;
+margin-bottom:12px;
+}
+
+.copyright{
+font-size:13px;
+opacity:0.8;
+margin-top:15px;
+}
 .whatsapp-float{
 position:fixed;
 bottom:20px;

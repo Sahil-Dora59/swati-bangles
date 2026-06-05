@@ -42,16 +42,7 @@ margin:0 auto 30px;
 
 /* Sticky Header */
 
-.sticky-header{
-position:sticky;
-top:0;
-z-index:1000;
-background:linear-gradient(135deg,var(--maroon),#8b1e2d);
-color:white;
-text-align:center;
-padding:18px 15px;
-box-shadow:0 4px 15px rgba(0,0,0,0.15);
-}
+
 .sticky-header .site-logo{
 width:65px;
 margin-bottom:8px;
@@ -64,6 +55,7 @@ margin-bottom:8px;
 
 .sticky-header .tagline{
 font-size:16px;
+margin-bottom:4px;
 }
 
 .sticky-header .sub-tagline{
@@ -72,7 +64,13 @@ font-size:14px;
 
 .sticky-header nav{
 margin-top:12px;
+display:flex;
+justify-content:center;
 gap:15px;
+flex-wrap:wrap;
+}
+.sticky-header nav a{
+font-size:16px;
 }
 
 /* Logo */
@@ -705,6 +703,15 @@ font-size:13px;
 
 .sticky-header .sub-tagline{
 font-size:12px;
+}
+
+}
+sticky-header nav{
+gap:12px;
+}
+
+.sticky-header nav a{
+font-size:14px;
 }
 
 }

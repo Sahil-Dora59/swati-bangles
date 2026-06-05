@@ -41,7 +41,16 @@ margin:0 auto 30px;
 }
 
 /* Sticky Header */
-
+.sticky-header{
+position:sticky;
+top:0;
+z-index:1000;
+background:linear-gradient(135deg,var(--maroon),#8b1e2d);
+color:white;
+text-align:center;
+padding:18px 15px;
+box-shadow:0 4px 15px rgba(0,0,0,0.15);
+}
 
 .sticky-header .site-logo{
 width:65px;

@@ -1,24 +1,42 @@
-```css
-/* ===================================
+
+/* ===========================================
 SWATI BANGLES V5.0
-style.css - Part 1
-Global • Header • Hero • Navigation
-=================================== */
+style.css Part 1
+
+Global
+Root
+Typography
+Container
+Header
+Navigation
+
+=========================================== */
 
 /* ==========================
-ROOT COLORS
+ROOT VARIABLES
 ========================== */
 
 :root{
 
---black:#0d0d0d;
---dark-maroon:#2b0008;
---maroon:#5a0f1c;
+--primary:#5a0f1c;
+
+--secondary:#2b0008;
+
 --gold:#d4af37;
---light-gold:#f5d77a;
+
+--gold-light:#f5d77a;
+
 --cream:#f8f5f0;
+
 --white:#ffffff;
---gray:#bdbdbd;
+
+--black:#111111;
+
+--gray:#666666;
+
+--shadow:0 10px 30px rgba(0,0,0,.10);
+
+--radius:18px;
 
 }
 
@@ -27,13 +45,19 @@ RESET
 ========================== */
 
 *{
+
 margin:0;
+
 padding:0;
+
 box-sizing:border-box;
+
 }
 
 html{
+
 scroll-behavior:smooth;
+
 }
 
 body{
@@ -42,11 +66,99 @@ font-family:'Poppins',sans-serif;
 
 background:var(--cream);
 
-color:#333;
+color:var(--black);
 
 line-height:1.7;
 
 overflow-x:hidden;
+
+}
+
+/* ==========================
+IMAGES
+========================== */
+
+img{
+
+max-width:100%;
+
+display:block;
+
+}
+
+/* ==========================
+LINKS
+========================== */
+
+a{
+
+text-decoration:none;
+
+color:inherit;
+
+}
+
+/* ==========================
+LISTS
+========================== */
+
+ul{
+
+list-style:none;
+
+}
+
+/* ==========================
+BUTTON
+========================== */
+
+button{
+
+font-family:'Poppins',sans-serif;
+
+cursor:pointer;
+
+border:none;
+
+outline:none;
+
+}
+
+/* ==========================
+CONTAINER
+========================== */
+
+.container{
+
+width:92%;
+
+max-width:1300px;
+
+margin:auto;
+
+}
+
+/* ==========================
+COMMON SECTION
+========================== */
+
+section{
+
+padding:90px 0;
+
+}
+
+.section-description{
+
+max-width:750px;
+
+margin:20px auto;
+
+text-align:center;
+
+color:var(--gray);
+
+font-size:17px;
 
 }
 
@@ -61,37 +173,39 @@ h4{
 
 font-family:'Cormorant Garamond',serif;
 
+font-weight:700;
+
+}
+
+h1{
+
+font-size:48px;
+
+letter-spacing:2px;
+
 }
 
 h2{
 
-font-size:48px;
+font-size:42px;
 
-color:var(--maroon);
+text-align:center;
+
+color:var(--primary);
 
 margin-bottom:20px;
 
-font-weight:700;
+}
+
+h3{
+
+font-size:28px;
 
 }
 
 p{
 
-font-size:17px;
-
-line-height:1.8;
-
-}
-
-.section-description{
-
-max-width:850px;
-
-margin:auto;
-
-margin-bottom:35px;
-
-color:#666;
+font-size:16px;
 
 }
 
@@ -99,69 +213,27 @@ color:#666;
 HEADER
 ========================== */
 
-.header{
+.main-header{
 
-position:relative;
-
-width:100%;
-
-background:linear-gradient(
-135deg,
-var(--dark-maroon),
-var(--maroon)
-);
-
-padding:25px 6%;
-
-z-index:100;
-
-box-shadow:0 8px 25px rgba(0,0,0,0.15);
-
-}
-
-/* NO STICKY BUG */
-
-.header.fixed{
-
-position:fixed;
+position:sticky;
 
 top:0;
 
-left:0;
+z-index:9999;
 
-width:100%;
+background:rgba(43,0,8,.96);
 
-padding:15px 6%;
+backdrop-filter:blur(15px);
 
-background:rgba(43,0,8,0.95);
-
-backdrop-filter:blur(12px);
-
-animation:headerSlide .4s;
-
-}
-
-@keyframes headerSlide{
-
-from{
-
-transform:translateY(-100%);
-
-}
-
-to{
-
-transform:translateY(0);
-
-}
+box-shadow:0 5px 20px rgba(0,0,0,.15);
 
 }
 
 /* ==========================
-NAV CONTAINER
+HEADER CONTAINER
 ========================== */
 
-.nav-container{
+.main-header .container{
 
 display:flex;
 
@@ -169,35 +241,51 @@ justify-content:space-between;
 
 align-items:center;
 
-max-width:1400px;
-
-margin:auto;
-
-gap:30px;
+padding:18px 0;
 
 }
 
 /* ==========================
-BRAND
+BRAND AREA
 ========================== */
 
-.brand h1{
+.brand-area{
 
-font-size:42px;
+display:flex;
 
-color:white;
+align-items:center;
 
-letter-spacing:2px;
+gap:15px;
 
 }
 
-.brand p{
+.logo{
 
-color:var(--light-gold);
+width:70px;
 
-font-size:15px;
+height:70px;
 
-margin-top:5px;
+object-fit:contain;
+
+}
+
+.brand-text h1{
+
+color:var(--white);
+
+font-size:34px;
+
+line-height:1;
+
+}
+
+.brand-text p{
+
+color:var(--gold-light);
+
+font-size:14px;
+
+margin-top:6px;
 
 }
 
@@ -205,35 +293,37 @@ margin-top:5px;
 NAVIGATION
 ========================== */
 
-nav{
+.navbar{
 
 display:flex;
 
 align-items:center;
 
-gap:30px;
-
-flex-wrap:wrap;
+gap:35px;
 
 }
 
-nav a{
+.navbar a{
 
 position:relative;
 
-text-decoration:none;
+color:var(--white);
 
-color:white;
-
-font-size:17px;
+font-size:16px;
 
 font-weight:500;
 
-transition:.35s;
+transition:.3s;
 
 }
 
-nav a::after{
+.navbar a:hover{
+
+color:var(--gold);
+
+}
+
+.navbar a::after{
 
 content:"";
 
@@ -241,7 +331,7 @@ position:absolute;
 
 left:0;
 
-bottom:-8px;
+bottom:-6px;
 
 width:0;
 
@@ -249,53 +339,184 @@ height:2px;
 
 background:var(--gold);
 
-transition:.35s;
+transition:.3s;
 
 }
 
-nav a:hover{
-
-color:var(--gold);
-
-}
-
-nav a:hover::after{
+.navbar a:hover::after{
 
 width:100%;
 
 }
 
 /* ==========================
-HERO
+ACTIVE NAVIGATION
 ========================== */
 
-.hero{
+.navbar a.active{
 
-padding:40px 5%;
-
-background:linear-gradient(
-180deg,
-#130406,
-var(--cream)
-);
+color:var(--gold);
 
 }
 
-.hero-image{
+.navbar a.active::after{
+
+width:100%;
+
+}
+
+/* ==========================
+HEADER SHRINK
+========================== */
+
+.main-header.scrolled{
+
+padding:5px 0;
+
+transition:.35s;
+
+}
+
+/* ==========================
+SMALL DEVICES
+========================== */
+
+@media(max-width:992px){
+
+.main-header .container{
+
+flex-direction:column;
+
+gap:15px;
+
+}
+
+.navbar{
+
+justify-content:center;
+
+flex-wrap:wrap;
+
+gap:18px;
+
+}
+
+.brand-area{
+
+flex-direction:column;
+
+text-align:center;
+
+}
+
+.logo{
+
+width:60px;
+
+height:60px;
+
+}
+
+.brand-text h1{
+
+font-size:28px;
+
+}
+
+}
+
+/* ==========================
+MOBILE
+========================== */
+
+@media(max-width:768px){
+
+section{
+
+padding:70px 0;
+
+}
+
+h1{
+
+font-size:34px;
+
+}
+
+h2{
+
+font-size:32px;
+
+}
+
+.brand-text h1{
+
+font-size:24px;
+
+}
+
+.brand-text p{
+
+font-size:12px;
+
+}
+
+.navbar{
+
+gap:12px;
+
+}
+
+.navbar a{
+
+font-size:14px;
+
+}
+
+.logo{
+
+width:55px;
+
+height:55px;
+
+}
+
+}
+```
+```css
+/* ==========================================
+SWATI BANGLES V5.0
+style.css Part 2
+
+Hero
+Buttons
+Stats
+Featured Collections
+Search & Filter
+
+========================================== */
+
+/* ==========================
+HERO SECTION
+========================== */
+
+.hero-section{
+
+background:linear-gradient(180deg,#fdfbf8,#f8f5f0);
+
+padding:60px 0 80px;
+
+}
+
+.hero-wrapper{
 
 position:relative;
 
-max-width:1500px;
-
-margin:auto;
+border-radius:25px;
 
 overflow:hidden;
 
-border-radius:25px;
-
-box-shadow:
-
-0 20px 60px rgba(0,0,0,.25);
+box-shadow:0 20px 50px rgba(0,0,0,.15);
 
 }
 
@@ -303,195 +524,215 @@ box-shadow:
 
 width:100%;
 
+height:650px;
+
+object-fit:cover;
+
 display:block;
 
-transition:.8s;
+transition:.5s;
 
 }
 
-.hero-image:hover .hero-banner{
+.hero-wrapper:hover .hero-banner{
 
 transform:scale(1.03);
 
 }
 
 /* ==========================
-OVERLAY
+HERO CONTENT
 ========================== */
 
-.hero-overlay{
+.hero-content{
 
 position:absolute;
 
-top:0;
+top:50%;
 
-left:0;
+left:7%;
 
-width:100%;
+transform:translateY(-50%);
 
-height:100%;
+max-width:520px;
 
-background:
-
-linear-gradient(
-
-90deg,
-
-rgba(0,0,0,.65),
-
-rgba(0,0,0,.25),
-
-transparent
-
-);
-
-display:flex;
-
-flex-direction:column;
-
-justify-content:center;
-
-padding-left:8%;
+color:white;
 
 }
 
-.hero-overlay h2{
+.hero-subtitle{
 
-color:white;
+display:inline-block;
+
+padding:8px 18px;
+
+background:rgba(212,175,55,.15);
+
+border:1px solid var(--gold);
+
+border-radius:50px;
+
+font-size:14px;
+
+margin-bottom:20px;
+
+backdrop-filter:blur(10px);
+
+}
+
+.hero-content h2{
 
 font-size:62px;
 
 line-height:1.1;
 
-margin-bottom:15px;
-
-max-width:650px;
-
-}
-
-.hero-overlay span{
-
-color:var(--gold);
-
-}
-
-.hero-overlay p{
+margin-bottom:20px;
 
 color:white;
 
-font-size:22px;
+}
 
-max-width:550px;
+.hero-content p{
+
+font-size:18px;
 
 margin-bottom:35px;
+
+color:#f5f5f5;
 
 }
 
 /* ==========================
-BUTTONS
+HERO BUTTONS
 ========================== */
 
-.hero-btn,
+.hero-buttons{
 
-.whatsapp-order-btn{
+display:flex;
 
-background:linear-gradient(
+gap:15px;
 
-135deg,
+flex-wrap:wrap;
 
-var(--gold),
+}
 
-#f0cf67
+.primary-btn{
 
-);
+background:var(--gold);
 
-color:#111;
+color:var(--black);
 
-border:none;
-
-padding:18px 38px;
+padding:15px 35px;
 
 border-radius:50px;
 
-font-size:17px;
+font-size:16px;
 
 font-weight:600;
 
-cursor:pointer;
+transition:.3s;
 
-transition:.35s;
-
-box-shadow:
-
-0 8px 25px rgba(212,175,55,.35);
+box-shadow:0 10px 25px rgba(212,175,55,.25);
 
 }
 
-.hero-btn:hover,
+.primary-btn:hover{
 
-.whatsapp-order-btn:hover{
+transform:translateY(-4px);
 
-transform:translateY(-5px);
-
-box-shadow:
-
-0 18px 35px rgba(212,175,55,.45);
+box-shadow:0 15px 35px rgba(212,175,55,.35);
 
 }
 
-/* ==========================
-ORDER SECTION
-========================== */
+.secondary-btn{
 
-.order-section{
+background:transparent;
 
-padding:80px 20px;
+color:white;
 
-text-align:center;
+border:2px solid white;
+
+padding:15px 35px;
+
+border-radius:50px;
+
+font-size:16px;
+
+font-weight:600;
+
+transition:.3s;
+
+}
+
+.secondary-btn:hover{
 
 background:white;
 
-}
-
-.order-section h2{
-
-margin-bottom:20px;
-
-}
-
-.order-section p{
-
-max-width:700px;
-
-margin:auto;
-
-margin-bottom:35px;
+color:var(--primary);
 
 }
 
 /* ==========================
-SECTION
+STATISTICS
 ========================== */
 
-.section{
+.stats-section{
 
-max-width:1300px;
+background:white;
 
-margin:auto;
+padding:80px 0;
 
-padding:90px 25px;
+}
+
+.stats-grid{
+
+display:grid;
+
+grid-template-columns:repeat(4,1fr);
+
+gap:25px;
+
+}
+
+.stat-card{
+
+background:var(--cream);
+
+padding:35px 25px;
+
+border-radius:var(--radius);
 
 text-align:center;
 
+box-shadow:var(--shadow);
+
+transition:.3s;
+
 }
-```
-```css
-/* ===================================
-SWATI BANGLES V5.0
-style.css - Part 2
-Featured Collections • Gallery • Cards
-About • Trust • Testimonials
-=================================== */
+
+.stat-card:hover{
+
+transform:translateY(-8px);
+
+}
+
+.stat-card h3{
+
+font-size:42px;
+
+color:var(--gold);
+
+margin-bottom:10px;
+
+}
+
+.stat-card p{
+
+font-size:16px;
+
+color:var(--gray);
+
+}
 
 /* ==========================
 FEATURED COLLECTIONS
@@ -499,25 +740,19 @@ FEATURED COLLECTIONS
 
 .featured-section{
 
-padding:90px 20px;
-
-background:#ffffff;
-
-text-align:center;
+background:#faf7f2;
 
 }
 
 .featured-grid{
 
-max-width:1400px;
-
-margin:50px auto 0;
-
 display:grid;
 
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 
 gap:30px;
+
+margin-top:50px;
 
 }
 
@@ -529,11 +764,9 @@ border-radius:20px;
 
 overflow:hidden;
 
-box-shadow:0 10px 30px rgba(0,0,0,0.08);
+box-shadow:var(--shadow);
 
-transition:.4s;
-
-border:1px solid rgba(212,175,55,.15);
+transition:.35s;
 
 }
 
@@ -541,73 +774,73 @@ border:1px solid rgba(212,175,55,.15);
 
 transform:translateY(-10px);
 
-box-shadow:0 18px 40px rgba(212,175,55,.20);
-
 }
 
 .featured-card img{
 
 width:100%;
 
-height:320px;
+height:300px;
 
 object-fit:cover;
 
-transition:.6s;
+transition:.4s;
 
 }
 
 .featured-card:hover img{
 
-transform:scale(1.06);
+transform:scale(1.05);
 
 }
 
-.featured-content{
+.featured-info{
 
 padding:25px;
 
-}
-
-.featured-content h3{
-
-font-size:32px;
-
-color:var(--maroon);
-
-margin-bottom:12px;
+text-align:center;
 
 }
 
-.featured-content p{
+.featured-info h3{
 
-color:#666;
+margin-bottom:10px;
 
-margin-bottom:20px;
-
-}
-
-.small-btn{
-
-padding:12px 28px;
-
-border:none;
-
-border-radius:40px;
-
-background:var(--gold);
-
-font-weight:600;
-
-cursor:pointer;
-
-transition:.3s;
+color:var(--primary);
 
 }
 
-.small-btn:hover{
+.featured-info p{
 
-transform:translateY(-3px);
+color:var(--gray);
+
+}
+
+/* ==========================
+CONSULTATION SECTION
+========================== */
+
+.consultation-section{
+
+background:linear-gradient(135deg,var(--primary),var(--secondary));
+
+text-align:center;
+
+color:white;
+
+}
+
+.consultation-section h2{
+
+color:white;
+
+}
+
+.consultation-section p{
+
+max-width:700px;
+
+margin:20px auto 35px;
 
 }
 
@@ -615,49 +848,45 @@ transform:translateY(-3px);
 SEARCH SECTION
 ========================== */
 
-.search-filter-section{
+.search-section{
 
-padding:70px 20px;
-
-background:linear-gradient(180deg,#fff,#faf7ef);
-
-text-align:center;
+background:white;
 
 }
 
-.search-container{
-
-margin-bottom:30px;
-
-}
-
-#searchInput{
+.search-section input{
 
 width:100%;
 
 max-width:600px;
 
-padding:18px;
+display:block;
+
+margin:30px auto;
+
+padding:16px 20px;
+
+border:2px solid #ddd;
 
 border-radius:50px;
 
-border:2px solid rgba(212,175,55,.4);
-
 font-size:16px;
-
-outline:none;
 
 transition:.3s;
 
 }
 
-#searchInput:focus{
+.search-section input:focus{
 
 border-color:var(--gold);
 
-box-shadow:0 0 15px rgba(212,175,55,.2);
+outline:none;
 
 }
+
+/* ==========================
+FILTER BUTTONS
+========================== */
 
 .filter-buttons{
 
@@ -665,17 +894,15 @@ display:flex;
 
 justify-content:center;
 
-flex-wrap:wrap;
-
 gap:15px;
+
+flex-wrap:wrap;
 
 }
 
 .filter-buttons button{
 
-padding:12px 28px;
-
-border:none;
+padding:12px 24px;
 
 border-radius:40px;
 
@@ -683,11 +910,9 @@ background:white;
 
 border:1px solid var(--gold);
 
-color:var(--maroon);
+color:var(--primary);
 
 font-weight:600;
-
-cursor:pointer;
 
 transition:.3s;
 
@@ -697,25 +922,127 @@ transition:.3s;
 
 background:var(--gold);
 
-color:black;
-
-transform:translateY(-3px);
+color:var(--black);
 
 }
 
 /* ==========================
-GALLERY
+RESPONSIVE
 ========================== */
 
-.gallery{
+@media(max-width:992px){
+
+.hero-content{
+
+left:5%;
+
+max-width:450px;
+
+}
+
+.hero-content h2{
+
+font-size:48px;
+
+}
+
+.stats-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+@media(max-width:768px){
+
+.hero-banner{
+
+height:450px;
+
+}
+
+.hero-content{
+
+position:absolute;
+
+left:20px;
+
+right:20px;
+
+max-width:none;
+
+}
+
+.hero-content h2{
+
+font-size:34px;
+
+}
+
+.hero-content p{
+
+font-size:15px;
+
+}
+
+.hero-buttons{
+
+flex-direction:column;
+
+}
+
+.primary-btn,
+
+.secondary-btn{
+
+width:100%;
+
+}
+
+.stats-grid{
+
+grid-template-columns:1fr;
+
+}
+
+}
+```
+```css
+/* ==========================================
+SWATI BANGLES V5.0
+style.css Part 3
+
+Gallery
+Categories
+About
+Trust
+Premium CTA
+Testimonials
+
+========================================== */
+
+/* ==========================
+GALLERY SECTION
+========================== */
+
+.gallery-section{
+
+background:var(--cream);
+
+padding:90px 0;
+
+}
+
+.gallery-grid{
 
 display:grid;
 
 grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 
-gap:28px;
+gap:30px;
 
-margin-top:40px;
+margin-top:50px;
 
 }
 
@@ -723,17 +1050,17 @@ margin-top:40px;
 
 width:100%;
 
-height:320px;
+height:340px;
 
 object-fit:cover;
 
-border-radius:18px;
+border-radius:20px;
 
 cursor:pointer;
 
-transition:.5s;
+transition:.4s;
 
-box-shadow:0 8px 25px rgba(0,0,0,.12);
+box-shadow:var(--shadow);
 
 }
 
@@ -741,97 +1068,117 @@ box-shadow:0 8px 25px rgba(0,0,0,.12);
 
 transform:translateY(-8px) scale(1.03);
 
-box-shadow:0 18px 40px rgba(212,175,55,.30);
+box-shadow:0 20px 45px rgba(212,175,55,.25);
 
 }
 
 /* ==========================
-CATEGORY GRID
+PRODUCT SECTION
 ========================== */
+
+.products-section{
+
+background:white;
+
+padding:90px 0;
+
+}
 
 .category-grid{
 
 display:grid;
 
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
 
-gap:28px;
+gap:30px;
 
-margin-top:40px;
+margin-top:50px;
 
 }
 
-.card{
+.category-card{
 
-background:white;
+background:var(--cream);
 
 padding:35px;
 
+text-align:center;
+
 border-radius:20px;
 
-box-shadow:0 10px 25px rgba(0,0,0,.08);
+transition:.35s;
 
-transition:.4s;
-
-border-bottom:4px solid transparent;
+box-shadow:var(--shadow);
 
 }
 
-.card:hover{
+.category-card:hover{
 
 transform:translateY(-10px);
 
-border-bottom:4px solid var(--gold);
-
-box-shadow:0 18px 40px rgba(212,175,55,.22);
+background:white;
 
 }
 
-.card h3{
+.category-icon{
 
-font-size:30px;
+font-size:55px;
 
-color:var(--maroon);
+margin-bottom:20px;
+
+}
+
+.category-card h3{
 
 margin-bottom:15px;
 
+color:var(--primary);
+
 }
 
-.card p{
+.category-card p{
 
-color:#666;
+color:var(--gray);
 
 }
 
 /* ==========================
-ABOUT
+ABOUT SECTION
 ========================== */
 
-.about{
+.about-section{
 
-max-width:1100px;
+background:#faf7f2;
 
-margin:90px auto;
-
-padding:60px;
-
-background:white;
-
-border-radius:25px;
-
-text-align:center;
-
-box-shadow:0 15px 40px rgba(0,0,0,.08);
+padding:90px 0;
 
 }
 
-.about p{
+.about-content{
 
-max-width:850px;
+max-width:900px;
 
-margin:20px auto;
+margin:auto;
 
-color:#555;
+text-align:center;
+
+background:white;
+
+padding:60px;
+
+border-radius:25px;
+
+box-shadow:var(--shadow);
+
+}
+
+.about-content p{
+
+margin-top:20px;
+
+color:var(--gray);
+
+line-height:1.9;
 
 }
 
@@ -841,71 +1188,75 @@ TRUST SECTION
 
 .trust-section{
 
-padding:90px 20px;
+background:white;
 
-background:#fff;
-
-text-align:center;
+padding:90px 0;
 
 }
 
-.why-grid{
+.trust-grid{
 
 display:grid;
 
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
 
-gap:25px;
+gap:30px;
 
-max-width:1300px;
-
-margin:auto;
-
-margin-top:40px;
+margin-top:50px;
 
 }
 
-.why-card{
+.trust-card{
 
-background:white;
+background:var(--cream);
 
 padding:35px;
 
-border-radius:20px;
+text-align:center;
 
-box-shadow:0 8px 25px rgba(0,0,0,.08);
+border-radius:20px;
 
 transition:.35s;
 
-}
-
-.why-card:hover{
-
-transform:translateY(-8px);
-
-box-shadow:0 18px 40px rgba(212,175,55,.20);
+box-shadow:var(--shadow);
 
 }
 
-.why-card h3{
+.trust-card:hover{
 
-font-size:30px;
+transform:translateY(-10px);
 
-color:var(--gold);
+}
+
+.trust-card h3{
+
+font-size:48px;
 
 margin-bottom:15px;
 
 }
 
+.trust-card h4{
+
+font-size:24px;
+
+color:var(--primary);
+
+margin-bottom:15px;
+
+}
+
+.trust-card p{
+
+color:var(--gray);
+
+}
+
 /* ==========================
-BRIDAL CTA
+PREMIUM CTA
 ========================== */
 
-.bridal-cta{
-
-padding:90px 20px;
-
-text-align:center;
+.premium-cta{
 
 background:
 
@@ -913,33 +1264,57 @@ linear-gradient(
 
 135deg,
 
-var(--dark-maroon),
+var(--secondary),
 
-var(--maroon)
+var(--primary)
 
 );
 
+padding:100px 0;
+
+text-align:center;
+
 color:white;
 
 }
 
-.bridal-cta h2{
+.premium-cta h2{
 
 color:white;
 
-margin-bottom:20px;
-
 }
 
-.bridal-cta p{
+.premium-cta p{
 
 max-width:700px;
 
-margin:auto;
-
-margin-bottom:35px;
+margin:20px auto 35px;
 
 font-size:18px;
+
+}
+
+/* ==========================
+DIVIDER
+========================== */
+
+.luxury-divider{
+
+padding:30px 0;
+
+background:white;
+
+text-align:center;
+
+}
+
+.luxury-divider span{
+
+font-size:34px;
+
+color:var(--gold);
+
+letter-spacing:12px;
 
 }
 
@@ -947,13 +1322,11 @@ font-size:18px;
 TESTIMONIALS
 ========================== */
 
-.testimonials{
+.testimonials-section{
 
-padding:90px 20px;
+background:#faf7f2;
 
-background:white;
-
-text-align:center;
+padding:90px 0;
 
 }
 
@@ -965,71 +1338,149 @@ grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
 
 gap:30px;
 
-max-width:1300px;
-
-margin:auto;
-
-margin-top:40px;
+margin-top:50px;
 
 }
 
 .testimonial-card{
 
-padding:35px;
-
 background:white;
+
+padding:35px;
 
 border-radius:20px;
 
-box-shadow:0 10px 25px rgba(0,0,0,.08);
+box-shadow:var(--shadow);
 
-transition:.4s;
+transition:.35s;
+
+text-align:center;
 
 }
 
 .testimonial-card:hover{
 
-transform:translateY(-8px);
-
-box-shadow:0 18px 40px rgba(212,175,55,.22);
+transform:translateY(-10px);
 
 }
 
-.testimonial-card h3{
+.stars{
 
-font-size:26px;
-
-margin-bottom:15px;
+font-size:24px;
 
 color:var(--gold);
 
-}
-
-.testimonial-card h4{
-
-margin-top:20px;
-
-color:var(--maroon);
-
-font-size:20px;
+margin-bottom:20px;
 
 }
 
 .testimonial-card p{
 
-color:#555;
+color:var(--gray);
 
 line-height:1.8;
+
+margin-bottom:20px;
+
+}
+
+.testimonial-card h4{
+
+color:var(--primary);
+
+font-size:20px;
+
+}
+
+/* ==========================
+RESPONSIVE
+========================== */
+
+@media(max-width:992px){
+
+.about-content{
+
+padding:40px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.gallery-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.category-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.trust-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.testimonial-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.about-content{
+
+padding:30px 20px;
+
+}
+
+.category-card{
+
+padding:30px 20px;
+
+}
+
+.trust-card{
+
+padding:30px 20px;
+
+}
+
+.gallery-img{
+
+height:300px;
+
+}
+
+.luxury-divider span{
+
+font-size:24px;
+
+letter-spacing:6px;
+
+}
 
 }
 ```
 ```css
-/* ===================================
+/* ==========================================
 SWATI BANGLES V5.0
-style.css - Part 3
-FAQ • Maps • Contact • Footer
-WhatsApp • Lightbox • Responsive
-=================================== */
+style.css Part 4
+
+FAQ
+Map
+Contact
+Footer
+WhatsApp
+Lightbox
+Animations
+Responsive
+
+========================================== */
 
 /* ==========================
 FAQ SECTION
@@ -1037,67 +1488,71 @@ FAQ SECTION
 
 .faq-section{
 
-padding:90px 20px;
+background:white;
 
-max-width:1100px;
+padding:90px 0;
 
-margin:auto;
+}
+
+.faq-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(450px,1fr));
+
+gap:25px;
+
+margin-top:50px;
 
 }
 
 .faq-item{
 
-background:white;
+background:var(--cream);
 
-padding:25px;
+padding:30px;
 
-margin-bottom:20px;
+border-radius:20px;
 
-border-radius:18px;
-
-box-shadow:0 8px 20px rgba(0,0,0,.08);
+box-shadow:var(--shadow);
 
 transition:.35s;
-
-border-left:5px solid transparent;
 
 }
 
 .faq-item:hover{
 
-transform:translateY(-5px);
-
-border-left:5px solid var(--gold);
-
-box-shadow:0 15px 35px rgba(212,175,55,.20);
+transform:translateY(-8px);
 
 }
 
 .faq-item h3{
 
-color:var(--maroon);
+color:var(--primary);
 
-margin-bottom:12px;
+margin-bottom:15px;
 
-font-size:28px;
+font-size:24px;
 
 }
 
 .faq-item p{
 
-color:#555;
+color:var(--gray);
+
+line-height:1.8;
 
 }
 
 /* ==========================
-GOOGLE MAP
+MAP SECTION
 ========================== */
 
 .map-section{
 
-padding:90px 20px;
+background:#faf7f2;
 
-background:white;
+padding:90px 0;
 
 text-align:center;
 
@@ -1105,45 +1560,23 @@ text-align:center;
 
 .map-section iframe{
 
-margin-top:30px;
+width:100%;
 
-border-radius:20px;
-
-box-shadow:0 15px 35px rgba(0,0,0,.15);
-
-}
-
-.direction-btn-wrapper{
-
-margin-top:30px;
-
-}
-
-.direction-btn{
-
-background:linear-gradient(135deg,var(--gold),#f4d46c);
-
-padding:16px 36px;
+height:420px;
 
 border:none;
 
-border-radius:50px;
+border-radius:20px;
 
-font-size:17px;
+margin-top:35px;
 
-font-weight:600;
-
-cursor:pointer;
-
-transition:.35s;
+box-shadow:var(--shadow);
 
 }
 
-.direction-btn:hover{
+.map-button{
 
-transform:translateY(-5px);
-
-box-shadow:0 15px 30px rgba(212,175,55,.35);
+margin-top:35px;
 
 }
 
@@ -1151,31 +1584,61 @@ box-shadow:0 15px 30px rgba(212,175,55,.35);
 CONTACT
 ========================== */
 
-.contact{
+.contact-section{
 
-padding:90px 20px;
+background:white;
 
-background:linear-gradient(135deg,var(--dark-maroon),var(--maroon));
+padding:90px 0;
 
-color:white;
+}
+
+.contact-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+gap:30px;
+
+margin-top:50px;
+
+}
+
+.contact-card{
+
+background:var(--cream);
+
+padding:35px;
+
+border-radius:20px;
 
 text-align:center;
 
-}
+box-shadow:var(--shadow);
 
-.contact h2{
-
-color:white;
-
-margin-bottom:25px;
+transition:.35s;
 
 }
 
-.contact p{
+.contact-card:hover{
 
-margin-bottom:15px;
+transform:translateY(-10px);
 
-font-size:18px;
+}
+
+.contact-card h3{
+
+color:var(--primary);
+
+margin-bottom:18px;
+
+}
+
+.contact-card p{
+
+color:var(--gray);
+
+line-height:1.8;
 
 }
 
@@ -1183,11 +1646,13 @@ font-size:18px;
 FOOTER
 ========================== */
 
-footer{
+.footer{
 
-background:#080808;
+background:var(--secondary);
 
-padding:50px 20px;
+color:white;
+
+padding:70px 0 40px;
 
 text-align:center;
 
@@ -1195,60 +1660,70 @@ border-top:3px solid var(--gold);
 
 }
 
-footer h2{
+.footer h2{
 
 color:var(--gold);
 
-font-size:42px;
-
-margin-bottom:15px;
+margin-bottom:20px;
 
 }
 
 .footer-tagline{
 
+margin-bottom:15px;
+
+font-size:18px;
+
+}
+
+.footer p{
+
+margin-bottom:10px;
+
+color:#dddddd;
+
+}
+
+.footer-links{
+
+display:flex;
+
+justify-content:center;
+
+gap:30px;
+
+flex-wrap:wrap;
+
+margin:35px 0;
+
+}
+
+.footer-links a{
+
 color:white;
 
-margin-bottom:15px;
+transition:.3s;
 
 }
 
-.footer-trust{
-
-color:var(--light-gold);
-
-margin-bottom:15px;
-
-}
-
-.footer-gst{
+.footer-links a:hover{
 
 color:var(--gold);
-
-margin-bottom:15px;
-
-}
-
-.footer-location{
-
-color:#d9d9d9;
-
-margin-bottom:15px;
 
 }
 
 .copyright{
 
-color:#999;
+margin-top:30px;
 
 font-size:14px;
 
-margin-top:20px;
+opacity:.8;
 
 }
 
 /* ==========================
-WHATSAPP FLOAT
+FLOATING WHATSAPP
 ========================== */
 
 .whatsapp-float{
@@ -1259,13 +1734,13 @@ right:20px;
 
 bottom:20px;
 
-width:70px;
+width:65px;
 
-height:70px;
+height:65px;
 
 background:#25D366;
 
-color:white;
+border-radius:50%;
 
 display:flex;
 
@@ -1273,39 +1748,37 @@ justify-content:center;
 
 align-items:center;
 
-font-size:34px;
+font-size:30px;
 
-text-decoration:none;
+color:white;
 
-border-radius:50%;
+z-index:9999;
 
-box-shadow:0 10px 30px rgba(0,0,0,.30);
+box-shadow:0 12px 25px rgba(0,0,0,.25);
 
-z-index:999;
+transition:.3s;
 
-transition:.35s;
-
-animation:pulse 2.5s infinite;
+animation:whatsappPulse 2s infinite;
 
 }
 
 .whatsapp-float:hover{
 
-transform:scale(1.12);
+transform:scale(1.1);
 
 }
 
-@keyframes pulse{
+@keyframes whatsappPulse{
 
 0%{
 
-box-shadow:0 0 0 0 rgba(37,211,102,.5);
+box-shadow:0 0 0 0 rgba(37,211,102,.6);
 
 }
 
 70%{
 
-box-shadow:0 0 0 20px rgba(37,211,102,0);
+box-shadow:0 0 0 18px rgba(37,211,102,0);
 
 }
 
@@ -1341,9 +1814,9 @@ justify-content:center;
 
 align-items:center;
 
-z-index:99999;
-
 padding:20px;
+
+z-index:10000;
 
 }
 
@@ -1357,61 +1830,33 @@ border-radius:20px;
 
 box-shadow:0 20px 50px rgba(0,0,0,.5);
 
-animation:zoomIn .35s;
-
-}
-
-@keyframes zoomIn{
-
-from{
-
-transform:scale(.8);
-
-opacity:0;
-
-}
-
-to{
-
-transform:scale(1);
-
-opacity:1;
-
-}
-
 }
 
 .close-lightbox{
 
 position:absolute;
 
-top:30px;
+top:25px;
 
 right:35px;
 
-font-size:45px;
-
-font-weight:bold;
+font-size:50px;
 
 color:white;
 
 cursor:pointer;
 
+font-weight:bold;
+
 }
 
 /* ==========================
-SCROLL ANIMATION
+FADE ANIMATION
 ========================== */
 
-.section,
-.about,
-.trust-section,
-.testimonials,
-.faq-section,
-.map-section,
-.contact{
+.fade-up{
 
-animation:fadeUp .8s ease;
+animation:fadeUp .8s ease forwards;
 
 }
 
@@ -1436,30 +1881,71 @@ transform:translateY(0);
 }
 
 /* ==========================
-MOBILE RESPONSIVE
+HOVER TRANSITION
+========================== */
+
+.featured-card,
+.category-card,
+.trust-card,
+.testimonial-card,
+.contact-card,
+.faq-item,
+.stat-card{
+
+transition:all .35s ease;
+
+}
+
+/* ==========================
+SCROLL OFFSET
+(FIX STICKY HEADER)
+========================== */
+
+html{
+
+scroll-padding-top:110px;
+
+}
+
+/* ==========================
+TABLET
+========================== */
+
+@media(max-width:992px){
+
+.faq-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.contact-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+.map-section iframe{
+
+height:350px;
+
+}
+
+}
+
+/* ==========================
+MOBILE
 ========================== */
 
 @media(max-width:768px){
 
-.header{
+.contact-grid{
 
-position:relative !important;
-
-padding:18px 15px;
+grid-template-columns:1fr;
 
 }
 
-/* FIXES HEADER OVERLAP BUG */
-
-.hero{
-
-margin-top:0;
-
-padding-top:20px;
-
-}
-
-.nav-container{
+.footer-links{
 
 flex-direction:column;
 
@@ -1467,95 +1953,31 @@ gap:15px;
 
 }
 
-.brand h1{
+.footer{
 
-font-size:30px;
-
-text-align:center;
+padding:50px 20px;
 
 }
 
-.brand p{
+.footer h2{
 
-font-size:14px;
-
-text-align:center;
+font-size:32px;
 
 }
 
-nav{
-
-justify-content:center;
-
-gap:14px;
-
-}
-
-nav a{
-
-font-size:15px;
-
-}
-
-.hero-overlay{
-
-position:relative;
-
-background:rgba(0,0,0,.55);
-
-padding:30px 20px;
-
-}
-
-.hero-overlay h2{
-
-font-size:34px;
-
-}
-
-.hero-overlay p{
+.footer-tagline{
 
 font-size:16px;
 
 }
 
-.hero-btn{
-
-width:100%;
-
-}
-
-.featured-grid,
-.gallery,
-.category-grid,
-.why-grid,
-.testimonial-grid{
-
-grid-template-columns:1fr;
-
-}
-
-.about{
-
-padding:30px 20px;
-
-margin:50px 15px;
-
-}
-
-h2{
-
-font-size:34px;
-
-}
-
 .whatsapp-float{
 
-width:60px;
+width:58px;
 
-height:60px;
+height:58px;
 
-font-size:30px;
+font-size:26px;
 
 right:15px;
 
@@ -1563,29 +1985,63 @@ bottom:15px;
 
 }
 
-footer h2{
+.map-section iframe{
 
-font-size:32px;
+height:280px;
+
+}
+
+.faq-item{
+
+padding:25px;
+
+}
+
+.contact-card{
+
+padding:30px 20px;
 
 }
 
 }
 
 /* ==========================
-LAPTOP
+SMALL MOBILE
 ========================== */
 
-@media(min-width:769px){
+@media(max-width:480px){
 
-.hero-overlay{
+h2{
 
-max-width:55%;
+font-size:28px;
+
+}
+
+p{
+
+font-size:15px;
+
+}
+
+.section-description{
+
+font-size:15px;
+
+}
+
+.whatsapp-float{
+
+width:54px;
+
+height:54px;
+
+font-size:24px;
 
 }
 
 }
 
-/* ==========================
-END OF V5 CSS
-========================== */
+/* ==========================================
+END OF SWATI BANGLES V5.0 CSS
+========================================== */
 ```

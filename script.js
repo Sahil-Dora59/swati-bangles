@@ -1,72 +1,185 @@
-/* =========================
-SWATI BANGLES V4.0
-script.js
-========================= */
+```javascript
+/* ==========================================
+SWATI BANGLES V5.0
+Premium script.js
+========================================== */
 
-/* Animated Counters */
+/* ===========================
+SMART HEADER
+=========================== */
 
-function animateValue(id, start, end, duration){
+const header = document.querySelector(".header");
 
-const obj = document.getElementById(id);
+window.addEventListener("scroll", () => {
 
-if(!obj) return;
+    if(window.scrollY > 120){
 
-let range = end - start;
-let current = start;
+        header.classList.add("fixed");
 
-let increment = end > start ? 1 : -1;
+    }
 
-let stepTime = Math.abs(Math.floor(duration / range));
+    else{
 
-let timer = setInterval(function(){
+        header.classList.remove("fixed");
 
-current += increment;
-
-obj.textContent = current + "+";
-
-if(current === end){
-
-clearInterval(timer);
-
-}
-
-}, stepTime);
-
-}
-
-window.addEventListener("load", function(){
-
-animateValue("years",0,18,1500);
-
-animateValue("customers",0,1000,2000);
-
-animateValue("designs",0,500,1800);
+    }
 
 });
 
-/* Product Filter */
+/* ===========================
+SMOOTH ACTIVE NAVIGATION
+=========================== */
+
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll("nav a");
+
+window.addEventListener("scroll",()=>{
+
+    let current="";
+
+    sections.forEach(section=>{
+
+        const sectionTop = section.offsetTop-180;
+
+        if(window.pageYOffset >= sectionTop){
+
+            current = section.getAttribute("id");
+
+        }
+
+    });
+
+    navLinks.forEach(link=>{
+
+        link.classList.remove("active");
+
+        if(link.getAttribute("href")=="#"+current){
+
+            link.classList.add("active");
+
+        }
+
+    });
+
+});
+
+/* ===========================
+ANIMATED COUNTERS
+=========================== */
+
+function animateCounter(id,target){
+
+    const element=document.getElementById(id);
+
+    if(!element) return;
+
+    let count=0;
+
+    const speed=Math.ceil(target/80);
+
+    const timer=setInterval(()=>{
+
+        count+=speed;
+
+        if(count>=target){
+
+            count=target;
+
+            clearInterval(timer);
+
+        }
+
+        element.innerHTML=count+"+";
+
+    },20);
+
+}
+
+const counterObserver=new IntersectionObserver((entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+animateCounter("years",18);
+
+animateCounter("customers",1000);
+
+animateCounter("designs",500);
+
+counterObserver.disconnect();
+
+}
+
+});
+
+});
+
+const stats=document.querySelector(".stats");
+
+if(stats){
+
+counterObserver.observe(stats);
+
+}
+
+/* ===========================
+SEARCH
+=========================== */
+
+const searchInput=document.getElementById("searchInput");
+
+if(searchInput){
+
+searchInput.addEventListener("keyup",function(){
+
+let value=this.value.toLowerCase();
+
+document.querySelectorAll(".gallery-img").forEach(img=>{
+
+img.style.display=
+
+img.alt.toLowerCase().includes(value)
+
+?
+
+"block"
+
+:
+
+"none";
+
+});
+
+});
+
+}
+
+/* ===========================
+FILTER
+=========================== */
 
 function filterGallery(category){
 
-const images = document.querySelectorAll(".gallery-img");
+const images=document.querySelectorAll(".gallery-img");
 
-images.forEach(function(img){
+images.forEach(img=>{
 
-if(category === "all"){
+if(category==="all"){
 
-img.style.display = "block";
+img.style.display="block";
 
 }
 
 else if(img.classList.contains(category)){
 
-img.style.display = "block";
+img.style.display="block";
 
 }
 
 else{
 
-img.style.display = "none";
+img.style.display="none";
 
 }
 
@@ -74,119 +187,209 @@ img.style.display = "none";
 
 }
 
-/* Search Bar */
+/* ===========================
+LIGHTBOX
+=========================== */
 
-const searchInput = document.getElementById("searchInput");
+const lightbox=document.getElementById("lightbox");
 
-if(searchInput){
+const lightboxImg=document.getElementById("lightbox-img");
 
-searchInput.addEventListener("keyup", function(){
+const closeBtn=document.querySelector(".close-lightbox");
 
-let searchValue =
-searchInput.value.toLowerCase();
+document.querySelectorAll(".gallery-img").forEach(image=>{
 
-const images =
-document.querySelectorAll(".gallery-img");
+image.addEventListener("click",()=>{
 
-images.forEach(function(img){
+lightbox.style.display="flex";
 
-let altText =
-img.alt.toLowerCase();
+lightboxImg.src=image.src;
 
-if(altText.includes(searchValue)){
+lightboxImg.alt=image.alt;
 
-img.style.display = "block";
-
-}
-
-else{
-
-img.style.display = "none";
-
-}
+document.body.style.overflow="hidden";
 
 });
 
 });
-
-}
-
-/* Image Lightbox */
-
-const galleryImages =
-document.querySelectorAll(".gallery-img");
-
-const lightbox =
-document.getElementById("lightbox");
-
-const lightboxImg =
-document.getElementById("lightbox-img");
-
-const closeBtn =
-document.querySelector(".close-lightbox");
-
-if(galleryImages.length > 0){
-
-galleryImages.forEach(function(img){
-
-img.addEventListener("click", function(){
-
-lightbox.style.display = "flex";
-
-lightboxImg.src = img.src;
-
-lightboxImg.alt = img.alt;
-
-});
-
-});
-
-}
 
 if(closeBtn){
 
-closeBtn.addEventListener("click", function(){
+closeBtn.onclick=()=>{
 
-lightbox.style.display = "none";
+lightbox.style.display="none";
 
-});
+document.body.style.overflow="auto";
+
+};
 
 }
 
 if(lightbox){
 
-lightbox.addEventListener("click", function(e){
+lightbox.onclick=(e)=>{
 
-if(e.target === lightbox){
+if(e.target===lightbox){
 
-lightbox.style.display = "none";
+lightbox.style.display="none";
+
+document.body.style.overflow="auto";
+
+}
+
+};
+
+}
+
+/* ===========================
+SCROLL REVEAL
+=========================== */
+
+const revealElements=document.querySelectorAll(
+
+".featured-card,.card,.why-card,.testimonial-card,.faq-item,.gallery-img,.review-card"
+
+);
+
+const revealObserver=new IntersectionObserver((entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.style.opacity="1";
+
+entry.target.style.transform="translateY(0)";
 
 }
 
 });
 
-}
+},{
 
-/* Share Website */
-
-function shareWebsite(){
-
-if(navigator.share){
-
-navigator.share({
-
-title:"SWATI BANGLES",
-
-text:"Premium Bangles & Jewellery Since 2006",
-
-url:window.location.href
+threshold:0.15
 
 });
 
-}else{
+revealElements.forEach(el=>{
 
-alert("Sharing is not supported on this device.");
+el.style.opacity="0";
+
+el.style.transform="translateY(40px)";
+
+el.style.transition="all .8s ease";
+
+revealObserver.observe(el);
+
+});
+
+/* ===========================
+BUTTON RIPPLE
+=========================== */
+
+document.querySelectorAll("button").forEach(btn=>{
+
+btn.addEventListener("mouseenter",()=>{
+
+btn.style.transition=".3s";
+
+});
+
+});
+
+/* ===========================
+BACK TO TOP BUTTON
+=========================== */
+
+const backBtn=document.createElement("button");
+
+backBtn.innerHTML="↑";
+
+backBtn.className="back-top";
+
+document.body.appendChild(backBtn);
+
+window.addEventListener("scroll",()=>{
+
+if(window.scrollY>500){
+
+backBtn.style.opacity="1";
+
+backBtn.style.visibility="visible";
 
 }
 
+else{
+
+backBtn.style.opacity="0";
+
+backBtn.style.visibility="hidden";
+
 }
+
+});
+
+backBtn.onclick=()=>{
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+};
+
+/* ===========================
+PRELOAD HERO IMAGE
+=========================== */
+
+const heroImage=new Image();
+
+heroImage.src="images/LuxuryBridalBannerV5.png";
+
+/* ===========================
+WHATSAPP CTA PULSE
+=========================== */
+
+setInterval(()=>{
+
+const btn=document.querySelector(".hero-btn");
+
+if(btn){
+
+btn.classList.add("pulse");
+
+setTimeout(()=>{
+
+btn.classList.remove("pulse");
+
+},1000);
+
+}
+
+},5000);
+
+/* ===========================
+CONSOLE MESSAGE
+=========================== */
+
+console.log(
+
+"%cSWATI BANGLES V5.0",
+
+"color:#d4af37;font-size:18px;font-weight:bold;"
+
+);
+
+console.log(
+
+"Premium Bridal Jewellery Website Loaded Successfully."
+
+);
+
+/* ===========================
+END OF SCRIPT
+=========================== */
+```

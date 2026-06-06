@@ -1,16 +1,16 @@
-
-/* ===========================================
-SWATI BANGLES V5.0
+/* ==========================================
+SWATI BANGLES
+FINAL V5 FIXED
 style.css Part 1
 
-Global
-Root
-Typography
-Container
-Header
-Navigation
+✓ Reset
+✓ Variables
+✓ Global
+✓ Header
+✓ Navigation
+✓ Responsive Header
 
-=========================================== */
+========================================== */
 
 /* ==========================
 ROOT VARIABLES
@@ -20,7 +20,7 @@ ROOT VARIABLES
 
 --primary:#5a0f1c;
 
---secondary:#2b0008;
+--secondary:#240006;
 
 --gold:#d4af37;
 
@@ -34,9 +34,9 @@ ROOT VARIABLES
 
 --gray:#666666;
 
---shadow:0 10px 30px rgba(0,0,0,.10);
+--shadow:0 10px 30px rgba(0,0,0,.12);
 
---radius:18px;
+--radius:20px;
 
 }
 
@@ -58,6 +58,8 @@ html{
 
 scroll-behavior:smooth;
 
+scroll-padding-top:110px;
+
 }
 
 body{
@@ -72,45 +74,27 @@ line-height:1.7;
 
 overflow-x:hidden;
 
+padding-top:100px;
+
 }
 
 /* ==========================
-IMAGES
+GLOBAL
 ========================== */
 
 img{
 
-max-width:100%;
-
 display:block;
 
-}
+max-width:100%;
 
-/* ==========================
-LINKS
-========================== */
+}
 
 a{
 
 text-decoration:none;
 
-color:inherit;
-
 }
-
-/* ==========================
-LISTS
-========================== */
-
-ul{
-
-list-style:none;
-
-}
-
-/* ==========================
-BUTTON
-========================== */
 
 button{
 
@@ -124,10 +108,6 @@ outline:none;
 
 }
 
-/* ==========================
-CONTAINER
-========================== */
-
 .container{
 
 width:92%;
@@ -138,33 +118,11 @@ margin:auto;
 
 }
 
-/* ==========================
-COMMON SECTION
-========================== */
-
 section{
 
-padding:90px 0;
+padding:80px 0;
 
 }
-
-.section-description{
-
-max-width:750px;
-
-margin:20px auto;
-
-text-align:center;
-
-color:var(--gray);
-
-font-size:17px;
-
-}
-
-/* ==========================
-TYPOGRAPHY
-========================== */
 
 h1,
 h2,
@@ -179,9 +137,7 @@ font-weight:700;
 
 h1{
 
-font-size:48px;
-
-letter-spacing:2px;
+font-size:46px;
 
 }
 
@@ -207,6 +163,18 @@ p{
 
 font-size:16px;
 
+color:var(--gray);
+
+}
+
+.section-description{
+
+max-width:760px;
+
+margin:20px auto 0;
+
+text-align:center;
+
 }
 
 /* ==========================
@@ -215,17 +183,31 @@ HEADER
 
 .main-header{
 
-position:sticky;
+position:fixed;
 
 top:0;
 
+left:0;
+
+width:100%;
+
 z-index:9999;
 
-background:rgba(43,0,8,.96);
+background:rgba(36,0,6,.97);
 
 backdrop-filter:blur(15px);
 
-box-shadow:0 5px 20px rgba(0,0,0,.15);
+box-shadow:0 4px 18px rgba(0,0,0,.18);
+
+transition:.35s;
+
+}
+
+.main-header.scrolled{
+
+background:rgba(36,0,6,.99);
+
+box-shadow:0 8px 20px rgba(0,0,0,.25);
 
 }
 
@@ -241,12 +223,12 @@ justify-content:space-between;
 
 align-items:center;
 
-padding:18px 0;
+padding:14px 0;
 
 }
 
 /* ==========================
-BRAND AREA
+LOGO AREA
 ========================== */
 
 .brand-area{
@@ -261,36 +243,44 @@ gap:15px;
 
 .logo{
 
-width:70px;
+width:65px;
 
-height:70px;
+height:65px;
 
 object-fit:contain;
+
+transition:.3s;
+
+}
+
+.logo:hover{
+
+transform:rotate(5deg) scale(1.05);
 
 }
 
 .brand-text h1{
 
-color:var(--white);
-
 font-size:34px;
 
+color:var(--white);
+
 line-height:1;
+
+margin-bottom:5px;
 
 }
 
 .brand-text p{
 
+font-size:13px;
+
 color:var(--gold-light);
-
-font-size:14px;
-
-margin-top:6px;
 
 }
 
 /* ==========================
-NAVIGATION
+NAVBAR
 ========================== */
 
 .navbar{
@@ -299,13 +289,11 @@ display:flex;
 
 align-items:center;
 
-gap:35px;
+gap:30px;
 
 }
 
 .navbar a{
-
-position:relative;
 
 color:var(--white);
 
@@ -313,7 +301,11 @@ font-size:16px;
 
 font-weight:500;
 
+position:relative;
+
 transition:.3s;
+
+padding-bottom:4px;
 
 }
 
@@ -331,7 +323,7 @@ position:absolute;
 
 left:0;
 
-bottom:-6px;
+bottom:0;
 
 width:0;
 
@@ -343,21 +335,7 @@ transition:.3s;
 
 }
 
-.navbar a:hover::after{
-
-width:100%;
-
-}
-
-/* ==========================
-ACTIVE NAVIGATION
-========================== */
-
-.navbar a.active{
-
-color:var(--gold);
-
-}
+.navbar a:hover::after,
 
 .navbar a.active::after{
 
@@ -365,20 +343,77 @@ width:100%;
 
 }
 
-/* ==========================
-HEADER SHRINK
-========================== */
+.navbar a.active{
 
-.main-header.scrolled{
-
-padding:5px 0;
-
-transition:.35s;
+color:var(--gold);
 
 }
 
 /* ==========================
-SMALL DEVICES
+COMMON BUTTON STYLE
+========================== */
+
+.primary-btn,
+.secondary-btn{
+
+display:inline-flex;
+
+justify-content:center;
+
+align-items:center;
+
+padding:15px 32px;
+
+border-radius:50px;
+
+font-size:16px;
+
+font-weight:600;
+
+transition:.3s;
+
+min-width:220px;
+
+}
+
+.primary-btn{
+
+background:var(--gold);
+
+color:var(--black);
+
+box-shadow:0 8px 20px rgba(212,175,55,.25);
+
+}
+
+.primary-btn:hover{
+
+transform:translateY(-4px);
+
+box-shadow:0 15px 30px rgba(212,175,55,.35);
+
+}
+
+.secondary-btn{
+
+border:2px solid white;
+
+background:transparent;
+
+color:white;
+
+}
+
+.secondary-btn:hover{
+
+background:white;
+
+color:var(--primary);
+
+}
+
+/* ==========================
+TABLET
 ========================== */
 
 @media(max-width:992px){
@@ -389,37 +424,23 @@ flex-direction:column;
 
 gap:15px;
 
+padding:18px 0;
+
 }
 
 .navbar{
 
-justify-content:center;
-
 flex-wrap:wrap;
+
+justify-content:center;
 
 gap:18px;
 
 }
 
-.brand-area{
+body{
 
-flex-direction:column;
-
-text-align:center;
-
-}
-
-.logo{
-
-width:60px;
-
-height:60px;
-
-}
-
-.brand-text h1{
-
-font-size:28px;
+padding-top:150px;
 
 }
 
@@ -431,27 +452,39 @@ MOBILE
 
 @media(max-width:768px){
 
+body{
+
+padding-top:165px;
+
+}
+
 section{
 
-padding:70px 0;
+padding:60px 0;
 
 }
 
-h1{
+.logo{
 
-font-size:34px;
+width:55px;
+
+height:55px;
 
 }
 
-h2{
+.brand-area{
 
-font-size:32px;
+flex-direction:column;
+
+text-align:center;
+
+gap:10px;
 
 }
 
 .brand-text h1{
 
-font-size:24px;
+font-size:26px;
 
 }
 
@@ -473,26 +506,36 @@ font-size:14px;
 
 }
 
-.logo{
+h2{
 
-width:55px;
-
-height:55px;
+font-size:32px;
 
 }
 
+.primary-btn,
+.secondary-btn{
+
+width:100%;
+
+min-width:100%;
+
 }
-```
-```css
+
+} 
 /* ==========================================
-SWATI BANGLES V5.0
+SWATI BANGLES
+FINAL V5 FIXED
 style.css Part 2
 
-Hero
-Buttons
-Stats
-Featured Collections
-Search & Filter
+✓ Hero Section
+✓ Hero Content
+✓ Hero Buttons
+✓ Stats
+✓ Featured Collection
+✓ Consultation CTA
+✓ Search
+✓ Filter Buttons
+✓ Mobile Fixed
 
 ========================================== */
 
@@ -502,9 +545,9 @@ HERO SECTION
 
 .hero-section{
 
-background:linear-gradient(180deg,#fdfbf8,#f8f5f0);
+padding:40px 0 70px;
 
-padding:60px 0 80px;
+background:linear-gradient(180deg,#fbf8f4,#f5efe6);
 
 }
 
@@ -512,11 +555,11 @@ padding:60px 0 80px;
 
 position:relative;
 
-border-radius:25px;
-
 overflow:hidden;
 
-box-shadow:0 20px 50px rgba(0,0,0,.15);
+border-radius:25px;
+
+box-shadow:0 20px 45px rgba(0,0,0,.15);
 
 }
 
@@ -524,11 +567,11 @@ box-shadow:0 20px 50px rgba(0,0,0,.15);
 
 width:100%;
 
-height:650px;
+display:block;
+
+height:auto;
 
 object-fit:cover;
-
-display:block;
 
 transition:.5s;
 
@@ -536,7 +579,7 @@ transition:.5s;
 
 .hero-wrapper:hover .hero-banner{
 
-transform:scale(1.03);
+transform:scale(1.02);
 
 }
 
@@ -550,13 +593,13 @@ position:absolute;
 
 top:50%;
 
-left:7%;
+left:60px;
 
 transform:translateY(-50%);
 
-max-width:520px;
+max-width:560px;
 
-color:white;
+z-index:5;
 
 }
 
@@ -566,29 +609,33 @@ display:inline-block;
 
 padding:8px 18px;
 
-background:rgba(212,175,55,.15);
+background:rgba(212,175,55,.18);
 
 border:1px solid var(--gold);
 
 border-radius:50px;
 
+color:white;
+
 font-size:14px;
 
-margin-bottom:20px;
+backdrop-filter:blur(8px);
 
-backdrop-filter:blur(10px);
+margin-bottom:20px;
 
 }
 
 .hero-content h2{
 
-font-size:62px;
+font-size:58px;
 
 line-height:1.1;
 
+color:white;
+
 margin-bottom:20px;
 
-color:white;
+text-shadow:0 3px 10px rgba(0,0,0,.35);
 
 }
 
@@ -596,15 +643,17 @@ color:white;
 
 font-size:18px;
 
-margin-bottom:35px;
+color:white;
 
-color:#f5f5f5;
+line-height:1.8;
+
+margin-bottom:30px;
+
+max-width:520px;
+
+text-shadow:0 2px 8px rgba(0,0,0,.3);
 
 }
-
-/* ==========================
-HERO BUTTONS
-========================== */
 
 .hero-buttons{
 
@@ -616,64 +665,8 @@ flex-wrap:wrap;
 
 }
 
-.primary-btn{
-
-background:var(--gold);
-
-color:var(--black);
-
-padding:15px 35px;
-
-border-radius:50px;
-
-font-size:16px;
-
-font-weight:600;
-
-transition:.3s;
-
-box-shadow:0 10px 25px rgba(212,175,55,.25);
-
-}
-
-.primary-btn:hover{
-
-transform:translateY(-4px);
-
-box-shadow:0 15px 35px rgba(212,175,55,.35);
-
-}
-
-.secondary-btn{
-
-background:transparent;
-
-color:white;
-
-border:2px solid white;
-
-padding:15px 35px;
-
-border-radius:50px;
-
-font-size:16px;
-
-font-weight:600;
-
-transition:.3s;
-
-}
-
-.secondary-btn:hover{
-
-background:white;
-
-color:var(--primary);
-
-}
-
 /* ==========================
-STATISTICS
+STATS SECTION
 ========================== */
 
 .stats-section{
@@ -706,7 +699,7 @@ text-align:center;
 
 box-shadow:var(--shadow);
 
-transition:.3s;
+transition:.35s;
 
 }
 
@@ -730,17 +723,15 @@ margin-bottom:10px;
 
 font-size:16px;
 
-color:var(--gray);
-
 }
 
 /* ==========================
-FEATURED COLLECTIONS
+FEATURED COLLECTION
 ========================== */
 
 .featured-section{
 
-background:#faf7f2;
+background:#faf8f5;
 
 }
 
@@ -780,7 +771,7 @@ transform:translateY(-10px);
 
 width:100%;
 
-height:300px;
+height:320px;
 
 object-fit:cover;
 
@@ -804,20 +795,20 @@ text-align:center;
 
 .featured-info h3{
 
-margin-bottom:10px;
-
 color:var(--primary);
+
+margin-bottom:10px;
 
 }
 
 .featured-info p{
 
-color:var(--gray);
+line-height:1.7;
 
 }
 
 /* ==========================
-CONSULTATION SECTION
+CONSULTATION CTA
 ========================== */
 
 .consultation-section{
@@ -826,7 +817,7 @@ background:linear-gradient(135deg,var(--primary),var(--secondary));
 
 text-align:center;
 
-color:white;
+padding:90px 0;
 
 }
 
@@ -842,6 +833,8 @@ max-width:700px;
 
 margin:20px auto 35px;
 
+color:#f3f3f3;
+
 }
 
 /* ==========================
@@ -852,21 +845,23 @@ SEARCH SECTION
 
 background:white;
 
+padding:70px 0;
+
 }
 
 .search-section input{
 
-width:100%;
-
-max-width:600px;
-
 display:block;
 
-margin:30px auto;
+width:100%;
+
+max-width:650px;
+
+margin:35px auto;
 
 padding:16px 20px;
 
-border:2px solid #ddd;
+border:2px solid #dddddd;
 
 border-radius:50px;
 
@@ -878,9 +873,11 @@ transition:.3s;
 
 .search-section input:focus{
 
+outline:none;
+
 border-color:var(--gold);
 
-outline:none;
+box-shadow:0 0 10px rgba(212,175,55,.2);
 
 }
 
@@ -894,25 +891,25 @@ display:flex;
 
 justify-content:center;
 
-gap:15px;
-
 flex-wrap:wrap;
+
+gap:15px;
 
 }
 
 .filter-buttons button{
 
-padding:12px 24px;
+background:white;
+
+border:2px solid var(--gold);
+
+padding:12px 26px;
 
 border-radius:40px;
 
-background:white;
-
-border:1px solid var(--gold);
+font-weight:600;
 
 color:var(--primary);
-
-font-weight:600;
 
 transition:.3s;
 
@@ -924,17 +921,19 @@ background:var(--gold);
 
 color:var(--black);
 
+transform:translateY(-3px);
+
 }
 
 /* ==========================
-RESPONSIVE
+MOBILE FIX
 ========================== */
 
 @media(max-width:992px){
 
 .hero-content{
 
-left:5%;
+left:35px;
 
 max-width:450px;
 
@@ -942,7 +941,7 @@ max-width:450px;
 
 .hero-content h2{
 
-font-size:48px;
+font-size:46px;
 
 }
 
@@ -956,27 +955,37 @@ grid-template-columns:repeat(2,1fr);
 
 @media(max-width:768px){
 
-.hero-banner{
+.hero-wrapper{
 
-height:450px;
+border-radius:20px;
 
 }
 
 .hero-content{
 
-position:absolute;
+position:static;
 
-left:20px;
+transform:none;
 
-right:20px;
+background:var(--secondary);
 
-max-width:none;
+padding:30px 20px;
+
+max-width:100%;
+
+text-align:center;
+
+}
+
+.hero-subtitle{
+
+margin:auto auto 18px;
 
 }
 
 .hero-content h2{
 
-font-size:34px;
+font-size:32px;
 
 }
 
@@ -984,19 +993,15 @@ font-size:34px;
 
 font-size:15px;
 
+margin-bottom:25px;
+
 }
 
 .hero-buttons{
 
+justify-content:center;
+
 flex-direction:column;
-
-}
-
-.primary-btn,
-
-.secondary-btn{
-
-width:100%;
 
 }
 
@@ -1006,19 +1011,51 @@ grid-template-columns:1fr;
 
 }
 
+.featured-grid{
+
+grid-template-columns:1fr;
+
 }
-```
-```css
+
+.featured-card img{
+
+height:280px;
+
+}
+
+.search-section input{
+
+font-size:15px;
+
+}
+
+.filter-buttons{
+
+gap:10px;
+
+}
+
+.filter-buttons button{
+
+width:100%;
+
+max-width:220px;
+
+}
+
+} 
 /* ==========================================
-SWATI BANGLES V5.0
+SWATI BANGLES
+FINAL V5 FIXED
 style.css Part 3
 
-Gallery
-Categories
-About
-Trust
-Premium CTA
-Testimonials
+✓ Gallery
+✓ Categories
+✓ About
+✓ Trust
+✓ Premium CTA
+✓ Divider
+✓ Testimonials
 
 ========================================== */
 
@@ -1030,7 +1067,7 @@ GALLERY SECTION
 
 background:var(--cream);
 
-padding:90px 0;
+padding:80px 0;
 
 }
 
@@ -1042,15 +1079,17 @@ grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 
 gap:30px;
 
-margin-top:50px;
+margin-top:45px;
 
 }
 
 .gallery-img{
 
+display:block;
+
 width:100%;
 
-height:340px;
+height:330px;
 
 object-fit:cover;
 
@@ -1058,29 +1097,29 @@ border-radius:20px;
 
 cursor:pointer;
 
-transition:.4s;
-
 box-shadow:var(--shadow);
+
+transition:.35s;
 
 }
 
 .gallery-img:hover{
 
-transform:translateY(-8px) scale(1.03);
+transform:translateY(-8px) scale(1.02);
 
-box-shadow:0 20px 45px rgba(212,175,55,.25);
+box-shadow:0 20px 40px rgba(212,175,55,.20);
 
 }
 
 /* ==========================
-PRODUCT SECTION
+PRODUCTS
 ========================== */
 
 .products-section{
 
 background:white;
 
-padding:90px 0;
+padding:80px 0;
 
 }
 
@@ -1088,11 +1127,11 @@ padding:90px 0;
 
 display:grid;
 
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 
 gap:30px;
 
-margin-top:50px;
+margin-top:45px;
 
 }
 
@@ -1100,21 +1139,21 @@ margin-top:50px;
 
 background:var(--cream);
 
-padding:35px;
-
-text-align:center;
+padding:35px 25px;
 
 border-radius:20px;
 
-transition:.35s;
+text-align:center;
 
 box-shadow:var(--shadow);
+
+transition:.35s;
 
 }
 
 .category-card:hover{
 
-transform:translateY(-10px);
+transform:translateY(-8px);
 
 background:white;
 
@@ -1122,33 +1161,33 @@ background:white;
 
 .category-icon{
 
-font-size:55px;
+font-size:52px;
 
-margin-bottom:20px;
+margin-bottom:18px;
 
 }
 
 .category-card h3{
 
-margin-bottom:15px;
-
 color:var(--primary);
+
+margin-bottom:12px;
 
 }
 
 .category-card p{
 
-color:var(--gray);
+line-height:1.8;
 
 }
 
 /* ==========================
-ABOUT SECTION
+ABOUT
 ========================== */
 
 .about-section{
 
-background:#faf7f2;
+background:#faf8f5;
 
 padding:90px 0;
 
@@ -1156,34 +1195,38 @@ padding:90px 0;
 
 .about-content{
 
-max-width:900px;
+max-width:950px;
 
 margin:auto;
 
-text-align:center;
-
 background:white;
 
-padding:60px;
+padding:55px;
 
 border-radius:25px;
 
 box-shadow:var(--shadow);
 
+text-align:center;
+
+}
+
+.about-content h2{
+
+margin-bottom:20px;
+
 }
 
 .about-content p{
 
-margin-top:20px;
-
-color:var(--gray);
+margin-top:18px;
 
 line-height:1.9;
 
 }
 
 /* ==========================
-TRUST SECTION
+TRUST
 ========================== */
 
 .trust-section{
@@ -1198,11 +1241,11 @@ padding:90px 0;
 
 display:grid;
 
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 
 gap:30px;
 
-margin-top:50px;
+margin-top:45px;
 
 }
 
@@ -1210,27 +1253,27 @@ margin-top:50px;
 
 background:var(--cream);
 
-padding:35px;
-
-text-align:center;
+padding:35px 25px;
 
 border-radius:20px;
 
-transition:.35s;
+text-align:center;
 
 box-shadow:var(--shadow);
+
+transition:.35s;
 
 }
 
 .trust-card:hover{
 
-transform:translateY(-10px);
+transform:translateY(-8px);
 
 }
 
 .trust-card h3{
 
-font-size:48px;
+font-size:50px;
 
 margin-bottom:15px;
 
@@ -1242,13 +1285,13 @@ font-size:24px;
 
 color:var(--primary);
 
-margin-bottom:15px;
+margin-bottom:12px;
 
 }
 
 .trust-card p{
 
-color:var(--gray);
+line-height:1.8;
 
 }
 
@@ -1258,23 +1301,11 @@ PREMIUM CTA
 
 .premium-cta{
 
-background:
+padding:90px 0;
 
-linear-gradient(
-
-135deg,
-
-var(--secondary),
-
-var(--primary)
-
-);
-
-padding:100px 0;
+background:linear-gradient(135deg,var(--secondary),var(--primary));
 
 text-align:center;
-
-color:white;
 
 }
 
@@ -1290,19 +1321,21 @@ max-width:700px;
 
 margin:20px auto 35px;
 
-font-size:18px;
+color:#f2f2f2;
+
+line-height:1.9;
 
 }
 
 /* ==========================
-DIVIDER
+LUXURY DIVIDER
 ========================== */
 
 .luxury-divider{
 
-padding:30px 0;
-
 background:white;
+
+padding:30px 0;
 
 text-align:center;
 
@@ -1310,11 +1343,11 @@ text-align:center;
 
 .luxury-divider span{
 
-font-size:34px;
+font-size:30px;
 
 color:var(--gold);
 
-letter-spacing:12px;
+letter-spacing:10px;
 
 }
 
@@ -1324,7 +1357,7 @@ TESTIMONIALS
 
 .testimonials-section{
 
-background:#faf7f2;
+background:#faf8f5;
 
 padding:90px 0;
 
@@ -1334,11 +1367,11 @@ padding:90px 0;
 
 display:grid;
 
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
 
 gap:30px;
 
-margin-top:50px;
+margin-top:45px;
 
 }
 
@@ -1350,17 +1383,17 @@ padding:35px;
 
 border-radius:20px;
 
+text-align:center;
+
 box-shadow:var(--shadow);
 
 transition:.35s;
-
-text-align:center;
 
 }
 
 .testimonial-card:hover{
 
-transform:translateY(-10px);
+transform:translateY(-8px);
 
 }
 
@@ -1370,17 +1403,15 @@ font-size:24px;
 
 color:var(--gold);
 
-margin-bottom:20px;
+margin-bottom:18px;
 
 }
 
 .testimonial-card p{
 
-color:var(--gray);
+line-height:1.9;
 
-line-height:1.8;
-
-margin-bottom:20px;
+margin-bottom:18px;
 
 }
 
@@ -1393,7 +1424,41 @@ font-size:20px;
 }
 
 /* ==========================
-RESPONSIVE
+SCROLL ANIMATION
+========================== */
+
+.fade-up{
+
+opacity:0;
+
+transform:translateY(40px);
+
+animation:fadeUp .8s ease forwards;
+
+}
+
+@keyframes fadeUp{
+
+0%{
+
+opacity:0;
+
+transform:translateY(40px);
+
+}
+
+100%{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+/* ==========================
+TABLET
 ========================== */
 
 @media(max-width:992px){
@@ -1404,7 +1469,17 @@ padding:40px;
 
 }
 
+.gallery-grid{
+
+grid-template-columns:repeat(2,1fr);
+
 }
+
+}
+
+/* ==========================
+MOBILE
+========================== */
 
 @media(max-width:768px){
 
@@ -1438,13 +1513,11 @@ padding:30px 20px;
 
 }
 
-.category-card{
+.category-card,
 
-padding:30px 20px;
+.trust-card,
 
-}
-
-.trust-card{
+.testimonial-card{
 
 padding:30px 20px;
 
@@ -1452,45 +1525,44 @@ padding:30px 20px;
 
 .gallery-img{
 
-height:300px;
+height:280px;
 
 }
 
 .luxury-divider span{
 
-font-size:24px;
+font-size:22px;
 
-letter-spacing:6px;
-
-}
+letter-spacing:5px;
 
 }
-```
-```css
+
+} 
 /* ==========================================
-SWATI BANGLES V5.0
+SWATI BANGLES
+FINAL V5 FIXED
 style.css Part 4
 
-FAQ
-Map
-Contact
-Footer
-WhatsApp
-Lightbox
-Animations
-Responsive
+✓ FAQ
+✓ Google Map
+✓ Contact
+✓ Footer
+✓ WhatsApp Float
+✓ Lightbox
+✓ Back To Top
+✓ Final Responsive Fixes
 
 ========================================== */
 
 /* ==========================
-FAQ SECTION
+FAQ
 ========================== */
 
 .faq-section{
 
-background:white;
+background:#ffffff;
 
-padding:90px 0;
+padding:80px 0;
 
 }
 
@@ -1498,11 +1570,11 @@ padding:90px 0;
 
 display:grid;
 
-grid-template-columns:repeat(auto-fit,minmax(450px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
 
 gap:25px;
 
-margin-top:50px;
+margin-top:45px;
 
 }
 
@@ -1522,7 +1594,7 @@ transition:.35s;
 
 .faq-item:hover{
 
-transform:translateY(-8px);
+transform:translateY(-6px);
 
 }
 
@@ -1532,27 +1604,25 @@ color:var(--primary);
 
 margin-bottom:15px;
 
-font-size:24px;
+font-size:22px;
 
 }
 
 .faq-item p{
-
-color:var(--gray);
 
 line-height:1.8;
 
 }
 
 /* ==========================
-MAP SECTION
+GOOGLE MAP
 ========================== */
 
 .map-section{
 
-background:#faf7f2;
+background:#faf8f5;
 
-padding:90px 0;
+padding:80px 0;
 
 text-align:center;
 
@@ -1568,7 +1638,7 @@ border:none;
 
 border-radius:20px;
 
-margin-top:35px;
+margin-top:30px;
 
 box-shadow:var(--shadow);
 
@@ -1576,7 +1646,7 @@ box-shadow:var(--shadow);
 
 .map-button{
 
-margin-top:35px;
+margin-top:30px;
 
 }
 
@@ -1588,7 +1658,7 @@ CONTACT
 
 background:white;
 
-padding:90px 0;
+padding:80px 0;
 
 }
 
@@ -1600,7 +1670,7 @@ grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 
 gap:30px;
 
-margin-top:50px;
+margin-top:45px;
 
 }
 
@@ -1622,7 +1692,7 @@ transition:.35s;
 
 .contact-card:hover{
 
-transform:translateY(-10px);
+transform:translateY(-8px);
 
 }
 
@@ -1630,13 +1700,11 @@ transform:translateY(-10px);
 
 color:var(--primary);
 
-margin-bottom:18px;
+margin-bottom:15px;
 
 }
 
 .contact-card p{
-
-color:var(--gray);
 
 line-height:1.8;
 
@@ -1648,13 +1716,13 @@ FOOTER
 
 .footer{
 
-background:var(--secondary);
+background:linear-gradient(135deg,var(--secondary),var(--primary));
 
-color:white;
-
-padding:70px 0 40px;
+padding:70px 20px 40px;
 
 text-align:center;
+
+color:white;
 
 border-top:3px solid var(--gold);
 
@@ -1664,23 +1732,25 @@ border-top:3px solid var(--gold);
 
 color:var(--gold);
 
-margin-bottom:20px;
+margin-bottom:15px;
 
 }
 
 .footer-tagline{
 
+font-size:18px;
+
 margin-bottom:15px;
 
-font-size:18px;
+color:#f5f5f5;
 
 }
 
 .footer p{
 
-margin-bottom:10px;
-
 color:#dddddd;
+
+margin-bottom:10px;
 
 }
 
@@ -1690,9 +1760,9 @@ display:flex;
 
 justify-content:center;
 
-gap:30px;
-
 flex-wrap:wrap;
+
+gap:25px;
 
 margin:35px 0;
 
@@ -1701,6 +1771,8 @@ margin:35px 0;
 .footer-links a{
 
 color:white;
+
+font-weight:500;
 
 transition:.3s;
 
@@ -1714,7 +1786,7 @@ color:var(--gold);
 
 .copyright{
 
-margin-top:30px;
+margin-top:25px;
 
 font-size:14px;
 
@@ -1723,7 +1795,7 @@ opacity:.8;
 }
 
 /* ==========================
-FLOATING WHATSAPP
+WHATSAPP FLOAT
 ========================== */
 
 .whatsapp-float{
@@ -1734,9 +1806,9 @@ right:20px;
 
 bottom:20px;
 
-width:65px;
+width:62px;
 
-height:65px;
+height:62px;
 
 background:#25D366;
 
@@ -1748,17 +1820,17 @@ justify-content:center;
 
 align-items:center;
 
-font-size:30px;
+font-size:28px;
 
 color:white;
 
-z-index:9999;
+box-shadow:0 10px 25px rgba(0,0,0,.25);
 
-box-shadow:0 12px 25px rgba(0,0,0,.25);
+z-index:9999;
 
 transition:.3s;
 
-animation:whatsappPulse 2s infinite;
+animation:pulse 2s infinite;
 
 }
 
@@ -1768,17 +1840,17 @@ transform:scale(1.1);
 
 }
 
-@keyframes whatsappPulse{
+@keyframes pulse{
 
 0%{
 
-box-shadow:0 0 0 0 rgba(37,211,102,.6);
+box-shadow:0 0 0 0 rgba(37,211,102,.5);
 
 }
 
 70%{
 
-box-shadow:0 0 0 18px rgba(37,211,102,0);
+box-shadow:0 0 0 15px rgba(37,211,102,0);
 
 }
 
@@ -1787,6 +1859,58 @@ box-shadow:0 0 0 18px rgba(37,211,102,0);
 box-shadow:0 0 0 0 rgba(37,211,102,0);
 
 }
+
+}
+
+/* ==========================
+BACK TO TOP
+========================== */
+
+.back-to-top{
+
+position:fixed;
+
+left:20px;
+
+bottom:20px;
+
+width:55px;
+
+height:55px;
+
+border-radius:50%;
+
+background:var(--gold);
+
+color:var(--black);
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:22px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+opacity:0;
+
+visibility:hidden;
+
+transition:.3s;
+
+z-index:9998;
+
+box-shadow:0 8px 20px rgba(0,0,0,.2);
+
+}
+
+.back-to-top:hover{
+
+transform:translateY(-4px);
 
 }
 
@@ -1828,7 +1952,7 @@ max-height:90%;
 
 border-radius:20px;
 
-box-shadow:0 20px 50px rgba(0,0,0,.5);
+box-shadow:0 15px 40px rgba(0,0,0,.5);
 
 }
 
@@ -1836,9 +1960,9 @@ box-shadow:0 20px 50px rgba(0,0,0,.5);
 
 position:absolute;
 
-top:25px;
+top:20px;
 
-right:35px;
+right:30px;
 
 font-size:50px;
 
@@ -1851,64 +1975,7 @@ font-weight:bold;
 }
 
 /* ==========================
-FADE ANIMATION
-========================== */
-
-.fade-up{
-
-animation:fadeUp .8s ease forwards;
-
-}
-
-@keyframes fadeUp{
-
-from{
-
-opacity:0;
-
-transform:translateY(40px);
-
-}
-
-to{
-
-opacity:1;
-
-transform:translateY(0);
-
-}
-
-}
-
-/* ==========================
-HOVER TRANSITION
-========================== */
-
-.featured-card,
-.category-card,
-.trust-card,
-.testimonial-card,
-.contact-card,
-.faq-item,
-.stat-card{
-
-transition:all .35s ease;
-
-}
-
-/* ==========================
-SCROLL OFFSET
-(FIX STICKY HEADER)
-========================== */
-
-html{
-
-scroll-padding-top:110px;
-
-}
-
-/* ==========================
-TABLET
+FINAL RESPONSIVE
 ========================== */
 
 @media(max-width:992px){
@@ -1927,15 +1994,11 @@ grid-template-columns:repeat(2,1fr);
 
 .map-section iframe{
 
-height:350px;
+height:340px;
 
 }
 
 }
-
-/* ==========================
-MOBILE
-========================== */
 
 @media(max-width:768px){
 
@@ -1961,7 +2024,7 @@ padding:50px 20px;
 
 .footer h2{
 
-font-size:32px;
+font-size:30px;
 
 }
 
@@ -1971,13 +2034,19 @@ font-size:16px;
 
 }
 
+.map-section iframe{
+
+height:280px;
+
+}
+
 .whatsapp-float{
 
-width:58px;
+width:56px;
 
-height:58px;
+height:56px;
 
-font-size:26px;
+font-size:24px;
 
 right:15px;
 
@@ -1985,29 +2054,21 @@ bottom:15px;
 
 }
 
-.map-section iframe{
+.back-to-top{
 
-height:280px;
+left:15px;
 
-}
+bottom:15px;
 
-.faq-item{
+width:50px;
 
-padding:25px;
+height:50px;
 
-}
-
-.contact-card{
-
-padding:30px 20px;
+font-size:20px;
 
 }
 
 }
-
-/* ==========================
-SMALL MOBILE
-========================== */
 
 @media(max-width:480px){
 
@@ -2029,19 +2090,49 @@ font-size:15px;
 
 }
 
-.whatsapp-float{
+}
 
-width:54px;
+/* ==========================
+FINAL FIXES
+========================== */
 
-height:54px;
+.primary-btn,
+.secondary-btn{
 
-font-size:24px;
+display:inline-flex;
+
+justify-content:center;
+
+align-items:center;
+
+text-align:center;
 
 }
+
+.hero-buttons a{
+
+display:inline-flex;
+
+}
+
+img{
+
+vertical-align:middle;
+
+}
+
+.gallery-img{
+
+display:block;
+
+}
+
+body{
+
+overflow-x:hidden;
 
 }
 
 /* ==========================================
-END OF SWATI BANGLES V5.0 CSS
+END OF FINAL V5 FIXED CSS
 ========================================== */
-```

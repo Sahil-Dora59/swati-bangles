@@ -66,10 +66,11 @@ class="logo">
 
 </div>
 
-<nav class="navbar">
+<nav class="navbar"
+  aria-label="Main Navigation">
 
-<a href="#home">Home</a>
-
+<a href="#home" class="active">Home</a>
+  
 <a href="#collections">Collections</a>
 
 <a href="#products">Categories</a>
@@ -124,18 +125,13 @@ cosmetics and gift collections trusted by families since 2006.
 
 <div class="hero-buttons">
 
-<a
-href="https://wa.me/917205969444"
+<a href="..."
+class="primary-btn"
 target="_blank">
-
-<button class="primary-btn">
 
 💬 Chat on WhatsApp
 
-</button>
-
 </a>
-
 <a
 href="#collections">
 
@@ -228,7 +224,8 @@ crafted for weddings, festivals and every special moment.
 <div class="featured-card">
 
 <img src="images/BridalFasionBangles.png"
-alt="Bridal Bangles">
+alt="Bridal Bangles"
+  loading="lazy">
 
 <div class="featured-info">
 
@@ -247,7 +244,8 @@ Elegant bridal bangles for weddings and receptions.
 <div class="featured-card">
 
 <img src="images/GoldenBronzeBangles.png"
-alt="Wedding Bangles">
+alt="Wedding Bangles"
+  loading="lazy">
 
 <div class="featured-info">
 
@@ -266,7 +264,8 @@ Luxury wedding collections with premium finishing.
 <div class="featured-card">
 
 <img src="images/BronzeBangles.png"
-alt="Designer Bangles">
+alt="Designer Bangles"
+  loading="lazy">
 
 <div class="featured-info">
 
@@ -285,7 +284,8 @@ Modern styles designed for every celebration.
 <div class="featured-card">
 
 <img src="images/KasmirBangles.png"
-alt="Traditional Bangles">
+alt="Traditional Bangles"
+  loading="lazy">
 
 <div class="featured-info">
 
@@ -1095,41 +1095,24 @@ All Rights Reserved.
 <!-- ===========================
 FLOATING WHATSAPP
 =========================== -->
+<footer class="footer">
+...
+</footer>
 
 <a
-
 href="https://wa.me/917205969444"
-
 class="whatsapp-float"
-
 target="_blank">
 
 💬
 
 </a>
 
-<!-- ===========================
-LIGHTBOX
-=========================== -->
+<div id="lightbox" class="lightbox">
 
-<div
-id="lightbox"
-class="lightbox">
+<span class="close-lightbox">&times;</span>
 
-<span
-class="close-lightbox">
-
-&times;
-
-</span>
-
-<img
-
-id="lightbox-img"
-
-src=""
-
-alt="Gallery Image">
+<img id="lightbox-img" src="" alt="Gallery Image">
 
 </div>
 
@@ -1138,4 +1121,3 @@ alt="Gallery Image">
 </body>
 
 </html>
-```
